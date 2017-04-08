@@ -1,0 +1,42 @@
+/* Styles just for the soliloquy gallery plugin */
+.soliloquy-container .soliloquy-pager, .soliloquy-container .soliloquy-caption, .soliloquy-container .soliloquy-controls-auto {
+    display: block !important;
+}
+
+.soliloquy-container {
+	margin-bottom: 32px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	
+}
+
+.soliloquy-container .soliloquy-pager {
+	bottom: -19px !important;
+}
+
+.soliloquy-viewport {
+	width: calc(100% - 64px) !important;
+	margin: 0 32px !important;
+}
+
+.soliloquy-container .soliloquy-prev, .soliloquy-container .soliloquy-next {
+	opacity: 0.75;
+	transition: opacity 500ms;
+	
+	top: 0 !important;
+	bottom: 0 !important;
+	margin-top: 0 !important;
+	height: auto !important;
+}
+
+.soliloquy-container .soliloquy-prev:hover, .soliloquy-container .soliloquy-next:hover {
+	opacity: 1.00;
+}
+
+.soliloquy-container .soliloquy-next {
+	right: 0 !important;
+}
+
+.soliloquy-container .soliloquy-prev {
+	left: 0 !important;
+}

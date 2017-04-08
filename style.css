@@ -1,0 +1,558 @@
+/*   
+Theme Name: Village Inn Pizza Family Resturaunt
+Description: The theme of Village Inn Pizza Family Resturaunt
+Author: Matthew Koerber
+Version: 1
+*/
+
+@font-face {
+    font-family: gabriola;
+    src: url(fonts/gabriola.woff);
+}
+
+@font-face {
+    font-family: cambria;
+    src: url(fonts/cambria.woff);
+}
+
+@font-face {
+    font-family: quartzo;
+    src: url(fonts/QUARTZO.ttf);
+}
+
+@media screen {
+    *:not(button) {
+        margin: 0;
+        padding: 0;
+    }
+    .screen-reader-text {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+    .clear {
+        clear: both;
+    }
+    .group:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+    * html .group,
+    *:first-child+html .group {
+        zoom: 1;
+    }
+    /* First selector = IE6, Second Selector = IE 7 */
+    
+    p {
+        margin: 0 0 10px 0;
+    }
+    ul,
+    ol {
+        margin: 0 0 10px 0;
+    }
+    ol.commentlist {
+        list-style: none;
+    }
+    ol.commentlist li.comment {
+        border-bottom: 1px dotted #666;
+        padding: 10px;
+    }
+    ol.commentlist li.comment div.vcard cite.fn {
+        font-style: normal;
+    }
+    ol.commentlist li.comment div.vcard img.avatar {
+        float: right;
+        margin: 0 0 10px 10px;
+    }
+    ol.commentlist li.comment div.comment-meta {
+        font-size: 10px;
+    }
+    ol.commentlist li.comment div.comment-meta a {
+        color: #ccc;
+    }
+    ol.commentlist li.comment div.reply {
+        font-size: 11px;
+    }
+    ol.commentlist li.comment div.reply a {
+        font-weight: bold;
+    }
+    ol.commentlist li.comment ul.children {
+        list-style: none;
+        margin: 10px 0 0;
+    }
+    ol.commentlist li.comment ul.children li.depth-2 {
+        border-left: 5px solid #555;
+        margin: 0 0 10px 10px;
+    }
+    ol.commentlist li.comment ul.children li.depth-3 {
+        border-left: 5px solid #999;
+        margin: 0 0 10px 10px;
+    }
+    ol.commentlist li.comment ul.children li.depth-4 {
+        border-left: 5px solid #bbb;
+        margin: 0 0 10px 10px;
+    }
+    ol.commentlist li.even {
+        background: #fff;
+    }
+    ol.commentlist li.odd {
+        background: #f6f6f6;
+    }
+    ol.commentlist li.parent {
+        border-left: 5px solid #111;
+    }
+}
+/* END screen media */
+
+@media print {
+    .do-not-print {
+        display: none;
+    }
+    #comments {
+        page-break-before: always;
+    }
+    code {
+        font: 10pt Courier, monospace;
+    }
+    blockquote {
+        margin: 1.3em;
+        padding: 1em;
+    }
+    a img {
+        border: none;
+    }
+    table {
+        margin: 1px;
+        text-align: left;
+    }
+    th {
+        border-bottom: 1px solid #333;
+        font-weight: bold;
+    }
+    td {
+        border-bottom: 1px solid #333;
+    }
+    th,
+    td {
+        padding: 4px 10px 4px 0;
+    }
+    caption {
+        background: #fff;
+        margin-bottom: 2em;
+        text-align: left;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tr {
+        page-break-inside: avoid;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+/* END print media */
+
+/* ------ New CSS ------ */
+
+/* Body */
+html, body {
+	width: 100%;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	display: flex;
+    flex-direction: column;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	font-family: cambria;
+}
+
+#skipnav {
+	margin: 0;
+	padding: 10px;
+	text-align: right;
+}
+
+#skipnav a {
+	color: white;
+}
+
+#page-wrap {
+	display: flex;
+    flex-direction: column;
+	flex-grow: 1;
+	overflow-x: hidden;
+}
+
+/* Header */
+#header {
+	position: relative;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-container {
+	width: 75%;
+	min-width: 425px;
+	margin: auto;
+	padding: 20px 5%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+#header-overlay {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#header a {
+	display: block;
+}
+
+#header .logo {
+	object-fit: contain;
+	display: block;
+}
+
+/* Nav */
+#nav-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid white;
+    color: #FFFFFF;
+    background-color: inherit;
+    z-index: 99999;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.hamburger, .cross {
+    z-index: 999;
+    cursor: pointer;
+    background: none;
+    border: none;
+    box-shadow: none;
+    box-sizing: content-box;
+    outline: none !important;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    float: right;
+}
+
+.hamburger span, .cross span {
+    display: block;
+    width: 100%;
+    height: 16.67%;
+    position: absolute;
+    background-color: #FFFFFF;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+.cross span:nth-child(1) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.cross span:nth-child(2) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+#mobile-nav {
+	display: none;
+	position: fixed;
+	z-index: 99999;
+	background-color: black;
+	width: 100%;
+}
+
+.sticky-wrapper nav .sticky-wrapper {
+	display: none;
+}
+
+.sticky-wrapper {
+	z-index: 999;
+}
+
+nav {
+	font-size: 1.5em;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	font-family: quartzo;
+}
+
+nav ul {
+	margin: 0;
+}
+
+nav li { 
+	display: inline-block;
+}
+
+nav li a {
+	display: block;
+	text-decoration: none;
+	padding: 10px 20px;
+}
+
+main {
+	box-sizing: border-box;
+	flex-grow: 1;
+	width: 75%;
+	min-width: 425px;
+	margin: auto;
+	padding: 20px 5%;
+}
+
+/* Main */
+.page .meta {
+	display: none;
+}
+
+/* Hides the aside that is the next sibling of .page */
+.page + aside {
+	display: none;
+}
+
+.page .entry + p {
+	display: none;
+}
+
+#map-container {
+	width: 100%;
+	height: 400px;
+}
+
+#map-container iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.menu-section-title, .sub-menu-section-title {
+	font-family: gabriola;
+}
+
+.offer {
+	display: flex;
+}
+
+.offer-container, .offer-image {
+	width: 50%;
+}
+
+.offer-image {
+	text-align: center;
+	overflow: hidden;
+}
+
+.offer h3 {
+	font-family: gabriola;
+	text-align: center;
+}
+
+.offer h3 .percent {
+	font-size: 2em;
+}
+
+.offer .offer-expiration {
+	font-style: italic;
+}
+
+.offer-description {
+	padding-right: 10px;
+	box-sizing: border-box;
+}
+
+/* Footer */
+#footer {
+	background-color: black;
+	color: white;
+	overflow: hidden;
+	box-shadow: 0px 500px 0px 500px black;
+}
+
+#footer-container {
+	width: 75%;
+    min-width: 425px;
+    margin: auto;
+    padding: 20px 5%;
+	box-sizing: border-box;
+}
+
+#footer a {
+	color: white;
+}
+
+#footer .contact {
+	display: inline-block;
+	float: left;
+}
+
+.contact {
+	margin: 10px 20px;
+}
+
+.contact span {
+	display: block;
+}
+
+.contact .mobile {
+	display: none;
+}
+
+.contact .desktop {
+	display: inline-block;
+}
+
+#facebook {
+	display: inline-block;
+	float: right;
+}
+
+#facebook a {
+    display: block;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 0;
+}
+
+#footer-container:after {
+	clear: both;
+	display: block;
+	content: "";
+}
+
+/* ---- Tablet (based on chrome's dev tools) ----*/
+@media screen and (max-width: 768px) {
+	
+	.offer .offer-image {
+		display: none;
+	}
+	
+	.offer-container {
+		width: 100%;
+	}
+	
+	.offer-description {
+		padding-right: 0;
+	}
+	
+	#footer-container {
+		text-align: center;
+	}
+	
+	#footer .contact {
+		float: none;
+		display: block;
+	}
+	
+	#facebook {
+		float: none;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.menu-main-container {
+		width: 100%;
+	}
+	
+	nav {
+		/* Overrides the stickyjs */
+		position: static !important;
+	}
+	
+	nav #main-menu {
+		width: 100%;
+	}
+	
+	nav ul {
+		width: 100%;
+	}
+	
+	nav li {
+		display: block;
+	}
+	
+	nav ul li:not(:last-child) {
+		border-bottom: 1px solid #7e391d;
+	}
+	
+	main, #footer-container {
+		box-sizing: border-box;
+		width: 100%;
+		min-width: initial;
+		margin: 0;
+	}
+}
+
+/* ---- Phone (based on chrome's dev tools) ----*/
+@media screen and (max-width: 425px) {
+	
+	#skipnav {
+		display: none;
+	}
+	
+	#header {
+		border-width: 5px;
+	}
+	
+	#header-container {
+		width: 100%;
+		min-width: initial;
+		margin: 0;
+	}
+	
+	#header .logo {
+		margin: 0 auto;
+	}
+	
+	main #map-container {
+		height: 500px;
+	}
+	
+	.contact .mobile {
+		display: inline-block;
+	}
+	
+	.contact .desktop {
+		display: none;
+	}
+	
+}
